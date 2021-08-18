@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.JornadaTrabalho;
 import com.dio.PontoDeAcesso.service.JornadaService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/jornada")
+@Api(tags = {"Jornada de Trabalho"}, description = "tipo de jornada de trabalho")
 public class JornadaTrabalhoController {
     @Autowired
     JornadaService jornadaService;
