@@ -1,5 +1,6 @@
 package com.dio.PontoDeAcesso.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Audited
+@ApiModel(value = "Jornada de Trabalho", description = "jornada de trabalho")
 public class JornadaTrabalho {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

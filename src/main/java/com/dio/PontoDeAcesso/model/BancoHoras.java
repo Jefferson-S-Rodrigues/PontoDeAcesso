@@ -1,6 +1,13 @@
 package com.dio.PontoDeAcesso.model;
 
-import lombok.*;
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -16,6 +23,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
+@ApiModel(value = "Banco de Horas", description = "banco de horas")
 public class BancoHoras {
 
 
@@ -23,6 +31,7 @@ public class BancoHoras {
     @Embeddable
     @Getter
     @Setter
+    @ApiIgnore
     public class BancoHorasId implements Serializable {
         private long idBancoHoras;
         private long idMovimentacao;

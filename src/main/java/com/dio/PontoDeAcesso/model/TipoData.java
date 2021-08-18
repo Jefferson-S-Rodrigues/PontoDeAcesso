@@ -1,5 +1,6 @@
 package com.dio.PontoDeAcesso.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode
 @Builder
 @Entity
+@ApiModel(value = "Tipo de Data", description = "tipo de data")
 public class TipoData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

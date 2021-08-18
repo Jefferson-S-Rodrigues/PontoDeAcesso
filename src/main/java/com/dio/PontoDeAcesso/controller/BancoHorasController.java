@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.BancoHoras;
 import com.dio.PontoDeAcesso.service.BancoHorasService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/bancoHoras")
+@Api(tags = {"Banco de Horas"}, description = "Acessa o banco de horas dos funcionários")
 public class BancoHorasController {
     @Autowired
     BancoHorasService bancoHorasService;
@@ -22,8 +24,8 @@ public class BancoHorasController {
     }
 
     @PostMapping
-    public BancoHoras createBancoHoras(@RequestBody BancoHoras bancoHorasTrabalho) {
-        return bancoHorasService.saveBancoHoras(bancoHorasTrabalho);
+    public BancoHoras createBancoHoras(@RequestBody BancoHoras bancoHoras) {
+        return bancoHorasService.saveBancoHoras(bancoHoras);
     }
 
     @GetMapping("/{idBancoHoras}")
@@ -33,8 +35,8 @@ public class BancoHorasController {
     }
 
     @PutMapping
-    public BancoHoras updateBancoHoras(@RequestBody BancoHoras bancoHorasTrabalho) {
-        return bancoHorasService.updateBancoHoras(bancoHorasTrabalho);
+    public BancoHoras updateBancoHoras(@RequestBody BancoHoras bancoHoras) {
+        return bancoHorasService.updateBancoHoras(bancoHoras);
     }
 
     @DeleteMapping("/{idBancoHoras}")

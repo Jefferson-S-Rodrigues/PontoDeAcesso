@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.Localidade;
 import com.dio.PontoDeAcesso.service.LocalidadeService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/localidade")
+@Api(tags = {"Localidade"}, description = "Localidade")
 public class LocalidadeController {
     @Autowired
     LocalidadeService localidadeService;

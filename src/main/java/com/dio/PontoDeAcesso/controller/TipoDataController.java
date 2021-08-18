@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.TipoData;
 import com.dio.PontoDeAcesso.service.TipoDataService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/tipoData")
+@Api(tags = {"Tipo de Data"}, description = "Tipos de datas")
 public class TipoDataController {
     @Autowired
     TipoDataService tipoDataService;
@@ -22,8 +24,8 @@ public class TipoDataController {
     }
 
     @PostMapping
-    public TipoData createTipoData(@RequestBody TipoData tipoDataTrabalho) {
-        return tipoDataService.saveTipoData(tipoDataTrabalho);
+    public TipoData createTipoData(@RequestBody TipoData tipoData) {
+        return tipoDataService.saveTipoData(tipoData);
     }
 
     @GetMapping("/{idTipoData}")
@@ -33,8 +35,8 @@ public class TipoDataController {
     }
 
     @PutMapping
-    public TipoData updateTipoData(@RequestBody TipoData tipoDataTrabalho) {
-        return tipoDataService.updateTipoData(tipoDataTrabalho);
+    public TipoData updateTipoData(@RequestBody TipoData tipoData) {
+        return tipoDataService.updateTipoData(tipoData);
     }
 
     @DeleteMapping("/{idTipoData}")

@@ -1,5 +1,6 @@
 package com.dio.PontoDeAcesso.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Audited
+@ApiModel(value = "Usuário", description = "usuário")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

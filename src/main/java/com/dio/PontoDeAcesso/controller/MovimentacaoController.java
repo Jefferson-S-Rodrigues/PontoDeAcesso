@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.Movimentacao;
 import com.dio.PontoDeAcesso.service.MovimentacaoService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/movimentacao")
+@Api(tags = {"Movimentação"}, description = "Acessa as movimentações")
 public class MovimentacaoController {
     @Autowired
     MovimentacaoService movimentacaoService;
@@ -22,8 +24,8 @@ public class MovimentacaoController {
     }
 
     @PostMapping
-    public Movimentacao createMovimentacao(@RequestBody Movimentacao movimentacaoTrabalho) {
-        return movimentacaoService.saveMovimentacao(movimentacaoTrabalho);
+    public Movimentacao createMovimentacao(@RequestBody Movimentacao movimentacao) {
+        return movimentacaoService.saveMovimentacao(movimentacao);
     }
 
     @GetMapping("/{idMovimentacao}")
@@ -33,8 +35,8 @@ public class MovimentacaoController {
     }
 
     @PutMapping
-    public Movimentacao updateMovimentacao(@RequestBody Movimentacao movimentacaoTrabalho) {
-        return movimentacaoService.updateMovimentacao(movimentacaoTrabalho);
+    public Movimentacao updateMovimentacao(@RequestBody Movimentacao movimentacao) {
+        return movimentacaoService.updateMovimentacao(movimentacao);
     }
 
     @DeleteMapping("/{idMovimentacao}")

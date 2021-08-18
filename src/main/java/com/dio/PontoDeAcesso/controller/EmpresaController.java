@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.Empresa;
 import com.dio.PontoDeAcesso.service.EmpresaService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/empresa")
+@Api(tags = {"Empresa"}, description = "Dados das empresas")
 public class EmpresaController {
     @Autowired
     EmpresaService empresaService;
@@ -22,8 +24,8 @@ public class EmpresaController {
     }
 
     @PostMapping
-    public Empresa createEmpresa(@RequestBody Empresa empresaTrabalho) {
-        return empresaService.saveEmpresa(empresaTrabalho);
+    public Empresa createEmpresa(@RequestBody Empresa empresa) {
+        return empresaService.saveEmpresa(empresa);
     }
 
     @GetMapping("/{idEmpresa}")
@@ -33,8 +35,8 @@ public class EmpresaController {
     }
 
     @PutMapping
-    public Empresa updateEmpresa(@RequestBody Empresa empresaTrabalho) {
-        return empresaService.updateEmpresa(empresaTrabalho);
+    public Empresa updateEmpresa(@RequestBody Empresa empresa) {
+        return empresaService.updateEmpresa(empresa);
     }
 
     @DeleteMapping("/{idEmpresa}")

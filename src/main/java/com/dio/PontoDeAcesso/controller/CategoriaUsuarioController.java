@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.CategoriaUsuario;
 import com.dio.PontoDeAcesso.service.CategoriaUsuarioService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/categoriaUsuario")
+@Api(tags = {"Categoria do Usuário"}, description = "Categorias dos funcionários")
 public class CategoriaUsuarioController {
     @Autowired
     CategoriaUsuarioService categoriaUsuarioService;
@@ -22,8 +24,8 @@ public class CategoriaUsuarioController {
     }
 
     @PostMapping
-    public CategoriaUsuario createCategoriaUsuario(@RequestBody CategoriaUsuario categoriaUsuarioTrabalho) {
-        return categoriaUsuarioService.saveCategoriaUsuario(categoriaUsuarioTrabalho);
+    public CategoriaUsuario createCategoriaUsuario(@RequestBody CategoriaUsuario categoriaUsuario) {
+        return categoriaUsuarioService.saveCategoriaUsuario(categoriaUsuario);
     }
 
     @GetMapping("/{idCategoriaUsuario}")
@@ -33,8 +35,8 @@ public class CategoriaUsuarioController {
     }
 
     @PutMapping
-    public CategoriaUsuario updateCategoriaUsuario(@RequestBody CategoriaUsuario categoriaUsuarioTrabalho) {
-        return categoriaUsuarioService.updateCategoriaUsuario(categoriaUsuarioTrabalho);
+    public CategoriaUsuario updateCategoriaUsuario(@RequestBody CategoriaUsuario categoriaUsuario) {
+        return categoriaUsuarioService.updateCategoriaUsuario(categoriaUsuario);
     }
 
     @DeleteMapping("/{idCategoriaUsuario}")

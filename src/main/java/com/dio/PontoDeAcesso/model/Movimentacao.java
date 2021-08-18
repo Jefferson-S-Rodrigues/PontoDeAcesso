@@ -1,5 +1,6 @@
 package com.dio.PontoDeAcesso.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
+@ApiModel(value = "Movimentação", description = "movimentação")
 public class Movimentacao {
 
     @AllArgsConstructor

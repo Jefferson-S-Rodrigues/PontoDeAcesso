@@ -1,5 +1,6 @@
 package com.dio.PontoDeAcesso.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
@@ -16,6 +17,7 @@ import javax.persistence.Id;
 @Builder
 @Entity
 @Audited
+@ApiModel(value = "Empresa", description = "empresa")
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

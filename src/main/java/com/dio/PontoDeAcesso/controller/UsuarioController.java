@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.controller;
 
 import com.dio.PontoDeAcesso.model.Usuario;
 import com.dio.PontoDeAcesso.service.UsuarioService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/usuario")
+@Api(tags = {"Usuário"}, description = "Dados dos usuários")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
@@ -22,8 +24,8 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario createUsuario(@RequestBody Usuario usuarioTrabalho) {
-        return usuarioService.saveUsuario(usuarioTrabalho);
+    public Usuario createUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.saveUsuario(usuario);
     }
 
     @GetMapping("/{idUsuario}")
@@ -33,8 +35,8 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public Usuario updateUsuario(@RequestBody Usuario usuarioTrabalho) {
-        return usuarioService.updateUsuario(usuarioTrabalho);
+    public Usuario updateUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.updateUsuario(usuario);
     }
 
     @DeleteMapping("/{idUsuario}")
