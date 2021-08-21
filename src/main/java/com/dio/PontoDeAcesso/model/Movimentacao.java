@@ -2,6 +2,7 @@ package com.dio.PontoDeAcesso.model;
 
 import io.swagger.annotations.ApiModel;
 import lombok.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,8 +22,11 @@ public class Movimentacao {
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
+    @Getter
+    @Setter
+    @ApiIgnore
     @Embeddable
-    public class MovimentacaoId implements Serializable {
+    public static class MovimentacaoId implements Serializable {
         private long idMovimento;
         private long idUsuario;
     }
